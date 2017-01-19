@@ -91,6 +91,13 @@ impl Reversal {
     }
 }
 
+// Define how our Reversal struct will print. Causes the struct to be printed with indicators
+// showing the position of self.first, self.second, self.c1, and self.c2. Here's an example of
+// what's printed from a freshly initialized "Reversal":
+//
+//     v                         v
+//     oddest legitimatize daffy reappearance
+//     ^                         ^
 impl fmt::Display for Reversal {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let (w1, w2) = (word_position(self.line.clone(), self.first),
@@ -131,6 +138,8 @@ impl Clone for Reversal {
     }
 }
 
+// Returns the number of words in the vector of characters. A word is ang group of non-space
+// characters.
 pub fn count_words(line: Vec<char>) -> usize {
     let mut wc = 0;
     let mut inword = false;
